@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 253px;
-    height: 75px;
+    width: 335px;
+    height: 110px;
     background: #FFFFFF;
     padding: 18px;
     margin: .4em;
@@ -19,6 +19,12 @@
     img{
         width: 62px;
         height: 37px;
+    }
+}
+
+select {
+    &:focus {
+        box-shadow: none;
     }
 }
 

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row justify-content-between">
     <div class="col-lg-3 overview">
         <div>
             <span>Daily Transaction Volume</span>
@@ -31,10 +31,10 @@
 </div>
 
 
-<div class="summary">
+<div class="summary mt-4">
     <div class="row">
         <div class="col-lg-8 chart-container">
-            <div class="chart-header p-3 d-flex align-items-center justify-content-between">
+            <div class="chart-header p-3 d-flex align-items-baseline justify-content-between">
                <p>Today: {{ today | date:'mediumDate' }}</p>
                <div class="d-flex">
                 <select name="" id="" class="form-control">
@@ -45,15 +45,8 @@
                      <button type="button" class="btn btn-outline-secondary"><i class="fa fa-angle-right"></i></button>
                 </div>
                </div>
-              
             </div>
-            <div class="chart">
-                <highcharts-chart
-                    [Highcharts] = "highcharts" 
-                    [options] = "chartOptions">
-                </highcharts-chart>
-            </div>
-    
+            <app-chart></app-chart>
         </div>
 
         <div class="col-lg-4">
@@ -81,7 +74,7 @@
     </div>
 </div>
 
-<div class="payments">
+<div class="payments mt-4">
     <h2 class="mb-3">Payments</h2>
     <div class="row">
         <div class="col-lg-12">
@@ -97,7 +90,8 @@
                 </div>
                 <div class="form-group form-inline d-flex align-items-center">
                     <label>Show</label> &nbsp;
-                    <select name="" id="" class="form-control">
+                    <select name="" id="" class="form-control" (change)="filterCompleted($event)">
+                        <option value="">All</option>
                         <option value="true">Completed</option>
                         <option value="false">Not Completed</option>
                     </select>
@@ -122,12 +116,14 @@
                         </div>
                     </td>
                     <td>{{ todo['title'] | titlecase }}</td>
-                    <td>{{ todo['completed'] }}</td>
+                    <td>{{ todo['completed']? 'Completed' : 'Not Completed' }}</td>
                   </tr>
                 </tbody>
               </table>
-            
-              <ngb-pagination 
+
+              <div class="d-flex justify-content-between">
+                  <p>Showing {{ page }} - {{ pageSize * page }} of {{ collectionSize }} entries</p>
+                <ngb-pagination 
                 [collectionSize]="collectionSize"
                 [(page)]="page" 
                 [maxSize]="5" 
@@ -135,6 +131,9 @@
                 [pageSize]="pageSize"
                 size="sm"
                 class="d-flex justify-content-end"></ngb-pagination>
+              </div>
+            
+              
 
         </div>
     
