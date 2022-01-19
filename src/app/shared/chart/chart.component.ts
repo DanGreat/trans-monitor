@@ -46,29 +46,16 @@ export class ChartComponent implements OnInit {
       }],
       responsive: {
         rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            // Make the labels less space demanding on mobile
-            // chartOptions: {
-            //     xAxis: {
-            //         labels: {
-            //             formatter: function () {
-            //                 return this.value.charAt(0);
-            //             }
-            //         }
-            //     },
-            //     yAxis: {
-            //         labels: {
-            //             align: 'left',
-            //             x: 0,
-            //             y: -2
-            //         },
-            //         title: {
-            //             text: ''
-            //         }
-            //     }
-            // }
+          condition: {
+            maxWidth: 50
+          },
+          chartOptions: {
+            legend: {
+              align: 'center',
+              verticalAlign: 'bottom',
+              layout: 'horizontal'
+            }
+          }
         }]
       }
     }
