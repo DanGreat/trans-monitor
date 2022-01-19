@@ -1,0 +1,108 @@
+.overview {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 253px;
+    height: 75px;
+    background: #FFFFFF;
+    padding: 18px;
+    margin: .4em;
+
+    span {
+        font-size: 12px;
+    }
+
+    h3{
+        font-size: 18px;
+    }
+
+    img{
+        width: 62px;
+        height: 37px;
+    }
+}
+
+.summary{
+
+    .chart-container {
+        padding: 8px;
+        background: #fff;
+
+        .chart-header {
+            p {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .summary-bg {
+        background: #FFFFFF;
+        padding: 2em;
+        margin-top: 5px;
+    }
+
+    .progress {
+        height: 4px;
+        background-color: #FDC203;
+        margin-bottom: 1em;
+
+        .progress-bar {
+            background-color: #27AE60;
+        }
+    }
+}
+
+.payments {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: left;
+
+    h2 {
+        font-size: 36px;
+    }
+
+    .form-group {
+        input {
+            border: 0;
+            border-bottom: 1px solid lightslategrey;
+            outline: 0;
+            background-color: transparent;
+            margin-left: 1em;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+
+    table {
+        margin-top: 1em;
+        thead {
+            background-color: #EAEEF0;
+            color: #7F8FA4;
+            height: 42px;
+        }
+        tbody {
+            tr {
+                td{
+                    &:nth-child(2) {
+
+                        display: flex !important;
+                        align-items: center;
+                        justify-content: flex-start;
+                    }
+                }
+            }
+
+            .user-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: #7F8FA4;
+                display: grid;
+                place-items: center;
+                color: #fff;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.row {
+    div {
+        height: auto;
+        padding-right: 0;
+
+        &:first-child {
+            width: 260px;
+        }
+
+        &:last-child {
+            width: calc(100vw - 260px);
+        }
+    }
+
+    .content{
+        background: #f5f5f5;
+        padding: 5em 2em 2em 2em;
+    }
+}

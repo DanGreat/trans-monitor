@@ -1,0 +1,67 @@
+.sidebar-container {
+
+    width: 100%;
+    position: relative;
+    height: auto;
+    transition: all 0.2s ease;
+    z-index: 1;
+    overflow: hidden;
+
+    .invoice{
+        text-align: center;
+        margin-top: 3.5em;
+
+        button{
+            width: 165px;
+            height: 45px;
+            border-radius: 30px;
+            background: #27AE60;
+            font-size: 13px;
+
+            &:focus{
+                box-shadow: none;
+            }
+        }
+    }
+
+    .side-list {
+        margin-top: 10px;
+
+        ul {
+            list-style-type: none;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+            li {
+                font-size: 11px;
+                color: #647787;
+                line-height: 15px;
+                padding: 1em 2em 1em 4em;
+
+                a{
+                    color: inherit;
+                }
+
+                i {
+                    margin-right: 10px;
+                } 
+
+                &.active, &:hover{
+                    background: #d7e8ff;
+                    border-left: 4px solid #1875F0;
+                    transition: all .2s ease;
+                    cursor: pointer;
+                }
+
+                &.list-header{
+                    background: transparent;
+                    border: none;
+                }
+            }
+
+           
+        }
+
+    }
+}

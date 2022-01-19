@@ -1,0 +1,143 @@
+<div class="row">
+    <div class="col-lg-3 overview">
+        <div>
+            <span>Daily Transaction Volume</span>
+            <h3>2,343</h3>
+        </div>
+        <img src="../../../assets/chart-overview.png" alt="">
+
+    </div>
+    <div class="col-lg-3 overview">
+        <div>
+            <span>Daily Transaction Value</span>
+            <h3>{{ 4000000 | currency:'₦':'symbol':'1.0-0' }}</h3>
+        </div>
+        <img src="../../../assets/chart-overview.png" alt="">
+    </div>
+    <div class="col-lg-3 overview">
+        <div>
+            <span>Total Transaction Volume</span>
+            <h3>452,000</h3>
+        </div>
+        <img src="../../../assets/chart-overview.png" alt="">
+    </div>
+    <div class="col-lg-3 overview">
+        <div>
+            <span>Total Transaction Value</span>
+            <h3>{{ 4000000 | currency:'₦':'symbol':'1.0-0' }}</h3>
+        </div>
+        <img src="../../../assets/chart-overview.png" alt="">
+    </div>
+</div>
+
+
+<div class="summary">
+    <div class="row">
+        <div class="col-lg-8 chart-container">
+            <div class="chart-header p-3 d-flex align-items-center justify-content-between">
+               <p>Today: {{ today | date:'mediumDate' }}</p>
+               <div class="d-flex">
+                <select name="" id="" class="form-control">
+                    <option value="">1 Jan - 1 Jun</option>
+                </select>
+                <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                     <button type="button" class="btn btn-outline-secondary"><i class="fa fa-angle-left"></i></button>
+                     <button type="button" class="btn btn-outline-secondary"><i class="fa fa-angle-right"></i></button>
+                </div>
+               </div>
+              
+            </div>
+            <div class="chart">
+                <highcharts-chart
+                    [Highcharts] = "highcharts" 
+                    [options] = "chartOptions">
+                </highcharts-chart>
+            </div>
+    
+        </div>
+
+        <div class="col-lg-4">
+            <div class="summary-bg">
+                <p><strong>Orders</strong></p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p>Pending Orders: <b class="yellow">20</b></p>
+                <p>Reconcilled Orders: <b class="green">80</b></p>
+                <p>Total Orders: <b class="blue">100</b></p>
+            </div>
+            <div class="summary-bg">
+                <p><strong>Payments</strong></p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p>Un-reconcilled Payments: <b class="yellow">20</b></p>
+                <p>Reconcilled Payments: <b class="green">80</b></p>
+                <p>Total Payments: <b class="blue">100</b></p>
+            </div>
+        
+        </div>
+    
+    </div>
+</div>
+
+<div class="payments">
+    <h2 class="mb-3">Payments</h2>
+    <div class="row">
+        <div class="col-lg-12">
+            <form class="d-flex justify-content-between">
+                <div class="form-group form-inline d-flex align-items-center w-100">
+                    <i class="fa fa-search"></i>
+                    <input class="form-control ml-2 w-50" 
+                    type="text" 
+                    name="searchTerm"
+                    placeholder="Search Payments"
+                    [(ngModel)]="searchTerm"
+                    (input)="search()" />
+                </div>
+                <div class="form-group form-inline d-flex align-items-center">
+                    <label>Show</label> &nbsp;
+                    <select name="" id="" class="form-control">
+                        <option value="true">Completed</option>
+                        <option value="false">Not Completed</option>
+                    </select>
+                </div>
+            </form>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" sortable="userId">User Id</th>
+                    <th scope="col" sortable="title">Title</th>
+                    <th scope="col">Completed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    *ngFor="let todo of todos | slice: (page-1) * pageSize : page * pageSize; index as i">
+                    <th scope="row">{{ (page -1) * pageSize + i + 1 }}</th>
+                    <td>
+                        <div class="user-icon">
+                            {{ todo['userId'] }}
+                        </div>
+                    </td>
+                    <td>{{ todo['title'] | titlecase }}</td>
+                    <td>{{ todo['completed'] }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            
+              <ngb-pagination 
+                [collectionSize]="collectionSize"
+                [(page)]="page" 
+                [maxSize]="5" 
+                [boundaryLinks]="true"
+                [pageSize]="pageSize"
+                size="sm"
+                class="d-flex justify-content-end"></ngb-pagination>
+
+        </div>
+    
+    </div>
+</div>
+
